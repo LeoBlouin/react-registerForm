@@ -7,6 +7,7 @@ class RegisterForm extends Component {
     validateMin: false,
     validateMaj: false,
     validateNumber: false,
+    validateSpecials: false,
     password: '',
     email: '',
   }
@@ -20,7 +21,11 @@ class RegisterForm extends Component {
 
   checkPassword = (password) => {
     this.setState({
-      validateNumber: /\d/.test(password)
+      validateChars: password.length >= 8,
+      validateMin: /[a-z]/.test(password),
+      validateMaj: /[A-Z]/.test(password),
+      validateNumber: /\d/.test(password),
+      validateSpecials: /\W/.test(password)
     });
   }
 
@@ -28,20 +33,22 @@ class RegisterForm extends Component {
     return (
       <div className="grid grid-cols-12 grid-rows-1 my-20">
         <div
-          className="col-span-12 sm:col-span-8 sm:col-start-3 lg:col-span-6 lg:col-start-4 xl:col-span-4 xl:col-start-5 bg-gray-50 p-3 sm:px-6 sm:py-8 rounded-lg">
-          <h3 className="font-bold text-center text-3xl mb-10">Inscription</h3>
+          className="col-span-12 sm:col-span-8 sm:col-start-3 lg:col-span-6 lg:col-start-4 xl:col-span-4 xl:col-start-5 bg-gray-700 text-white p-8 rounded-lg">
+          <h3 className="font-bold text-center text-4xl mb-10">Inscription</h3>
           <form>
             <label className="block" htmlFor="email">Adresse email</label>
             <input type="email" placeholder="Entrez une adresse email"
                    name="email"
+                   autoComplete="off"
                    value={this.state.email}
                    onChange={this.onChange}
-                   className="border mt-2 w-full py-2 px-4 rounded-md duration-300 outline-none focus:ring"/>
+                   className="text-gray-800 border mt-2 w-full py-2 px-4 rounded-md duration-300 outline-none focus:ring"/>
 
             <label className="block mt-5" htmlFor="password">Mot de passe</label>
             <input type="password" placeholder="Entrez un mot de passe"
-                   className="border mt-2 w-full py-2 px-4 rounded-md duration-300 outline-none focus:ring"
+                   className="text-gray-800 border mt-2 w-full py-2 px-4 rounded-md duration-300 outline-none focus:ring"
                    name="password"
+                   autoComplete="off"
                    value={this.state.password}
                    onChange={this.onChange}/>
 
@@ -68,6 +75,12 @@ class RegisterForm extends Component {
                 {this.state.validateNumber ? (<i className="fas fa-check text-green-400 mr-4"/>) : (
                   <i className="fas fa-times text-red-500 mr-5 ml-0.5"/>)}
                 <span>1 chiffre minimum</span>
+              </p>
+
+              <p>
+                {this.state.validateSpecials ? (<i className="fas fa-check text-green-400 mr-4"/>) : (
+                  <i className="fas fa-times text-red-500 mr-5 ml-0.5"/>)}
+                <span>1 caractère spécial minimum</span>
               </p>
             </div>
           </form>
