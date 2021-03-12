@@ -104,45 +104,41 @@ export default class RegisterForm extends React.Component {
 
             {/* Password */}
             <label className="reveal-4 block mt-5 pl-5 font-medium" htmlFor="password">Mot de passe</label>
-            <div className="reveal-4">
-              <input
-                type="password"
-                placeholder="Entrez un mot de passe"
-                className="input input-clair w-10/12 rounded-l-full dark:placeholder-gray-400 dark:bg-gray-600 dark:focus:bg-gray-500 dark:focus:placeholder-gray-300"
-                name="password"
-                autoComplete="off"
-                value={this.state.password}
-                onChange={this.onChange}
-              />
-              <button
-                className="w-2/12 h-10 rounded-r-full outline-none focus:outline-none bg-gray-300 dark:bg-gray-600"
-                onClick={this.showPassword}
-              >
-                <i className={`fas ${this.state.hidePassword ? 'fa-eye' : 'fa-eye-slash'}`}/>
-              </button>
-            </div>
+            <input
+              type="password"
+              placeholder="Entrez un mot de passe"
+              className="reveal-4 input input-clair w-10/12 rounded-l-full dark:placeholder-gray-400 dark:bg-gray-600 dark:focus:bg-gray-500 dark:focus:placeholder-gray-300"
+              name="password"
+              autoComplete="off"
+              value={this.state.password}
+              onChange={this.onChange}
+            />
+            <button
+              className="reveal-4 w-2/12 h-10 rounded-r-full outline-none focus:outline-none bg-gray-300 dark:bg-gray-600"
+              onClick={this.showPassword}
+            >
+              <i className={`fas ${this.state.hidePassword ? 'fa-eye' : 'fa-eye-slash'}`}/>
+            </button>
 
             {/* Confirm Password */}
             <label className="reveal-5 block mt-5 pl-5 font-medium" htmlFor="confirmPassword">Confirmation mot de
               passe</label>
-            <div className="reveal-5">
-              <input
-                type="password"
-                placeholder="Veuillez confirmer votre mot de passe"
-                className="input input-clair w-10/12 rounded-l-full dark:placeholder-gray-400 dark:bg-gray-600 dark:focus:bg-gray-500 dark:focus:placeholder-gray-300"
-                name="confirmPassword"
-                autoComplete="off"
-                value={this.state.confirmPassword}
-                onChange={this.onChange}
-              />
+            <input
+              type="password"
+              placeholder="Veuillez confirmer votre mot de passe"
+              className="reveal-5 input input-clair w-10/12 rounded-l-full dark:placeholder-gray-400 dark:bg-gray-600 dark:focus:bg-gray-500 dark:focus:placeholder-gray-300"
+              name="confirmPassword"
+              autoComplete="off"
+              value={this.state.confirmPassword}
+              onChange={this.onChange}
+            />
 
-              <button
-                className="w-2/12 h-10 rounded-r-full outline-none focus:outline-none bg-gray-300 dark:bg-gray-600"
-                onClick={this.showConfirmPassword}
-              >
-                <i className={`fas ${this.state.hideConfirmPassword ? 'fa-eye' : 'fa-eye-slash'}`}/>
-              </button>
-            </div>
+            <button
+              className="reveal-5 w-2/12 h-10 rounded-r-full outline-none focus:outline-none bg-gray-300 dark:bg-gray-600"
+              onClick={this.showConfirmPassword}
+            >
+              <i className={`fas ${this.state.hideConfirmPassword ? 'fa-eye' : 'fa-eye-slash'}`}/>
+            </button>
 
             <CheckRegisterForm
               validateChars={this.state.validateChars}
