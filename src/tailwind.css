@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.input {
+  @apply mt-2 w-full py-2 px-4 rounded-full duration-300 outline-none;
+}
+
+.input-clair {
+  @apply placeholder-gray-700 bg-gray-300 focus:bg-gray-200 focus:placeholder-gray-500 focus:ring focus:ring-gray-400 focus:ring-opacity-20;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-full duration-300 font-semibold outline-none text-white;
+}
+
+.btn-error {
+  @apply bg-red-500 cursor-not-allowed;
+}
+
+.btn-success {
+  @apply bg-green-500 hover:bg-green-600 cursor-pointer;
+}
+
+.btn-moon {
+  @apply bg-gray-600 hover:bg-gray-700 text-gray-200;
+}
+
+.btn-sun {
+  @apply bg-gray-100 hover:bg-gray-200 text-gray-900;
+}
