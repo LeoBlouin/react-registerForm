@@ -29,3 +29,43 @@
 .btn-sun {
   @apply bg-gray-100 hover:bg-gray-200 text-gray-900;
 }
+
+.reveal-hide [class*="reveal-"] {
+  @apply opacity-0 transform translate-y-10 transition duration-0;
+}
+
+.reveal-show [class*="reveal-"] {
+  @apply opacity-100 transform translate-y-0 transition-basic duration-1000 ease-in-out;
+}
+
+.reveal-1 {
+  @apply delay-100;
+}
+
+.reveal-2 {
+  @apply delay-200;
+}
+
+.reveal-3 {
+  @apply delay-300;
+}
+
+.reveal-4 {
+  @apply delay-400;
+}
+
+.reveal-5 {
+  @apply delay-500;
+}
+
+.reveal-6 {
+  @apply delay-600;
+}
+
+.reveal-7 {
+  @apply delay-700;
+}
+
+.reveal-8 {
+  @apply delay-800;
+}

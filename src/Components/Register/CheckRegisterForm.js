@@ -3,7 +3,7 @@ import React from 'react';
 export default class CheckRegisterForm extends React.Component {
   render() {
     return (
-      <div className="mt-5 font-semibold">
+      <div className="reveal-6 mt-5 font-semibold">
 
         {/* 8 caractères minimum */}
         <p>
@@ -45,12 +45,12 @@ export default class CheckRegisterForm extends React.Component {
           <span>1 caractère spécial minimum</span>
         </p>
 
-        {/* Mots de passes identiques */}
+        {/* Mots de passe identiques */}
         <p>
           {this.props.samePassword
             ? (<i className="fas fa-check text-green-600 dark:text-green-400 mr-4"/>)
             : (<i className="fas fa-times text-red-500 mr-5 ml-0.5"/>)}
-          <span>Mots de passes identiques</span>
+          <span>Mots de passe identiques</span>
         </p>
       </div>
     );
