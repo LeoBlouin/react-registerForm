@@ -30,7 +30,7 @@ export default class DarkMode extends React.Component {
     return (
       <React.Fragment>
         <button
-          className={`${this.state.darkMode ? 'btn-sun' : 'btn-moon'} btn mx-auto block mt-10 focus:outline-none text-lg`}
+          className={`${this.state.darkMode ? 'btn-sun' : 'btn-moon'} btn mx-auto block mt-5 focus:outline-none text-lg`}
           onClick={this.switchDarkMode}
         >
           {this.state.darkMode

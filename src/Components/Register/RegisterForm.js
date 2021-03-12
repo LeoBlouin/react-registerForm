@@ -15,6 +15,8 @@ export default class RegisterForm extends React.Component {
     samePassword: false,
     email: '',
     validateEmail: false,
+    hidePassword: true,
+    hideConfirmPassword: true,
   }
 
   onChange = e => {
@@ -53,18 +55,30 @@ export default class RegisterForm extends React.Component {
   }
 
   checkConfirmPassword = password => {
-    this.setState({
-      samePassword: (password === this.state.password && password.length > 0 && this.state.password.length > 0),
-    });
+    this.setState({samePassword: (password === this.state.password && password.length > 0 && this.state.password.length > 0)});
   }
 
   checkEmail = email => {
     this.setState({validateEmail: (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))})
   }
 
+  showPassword = e => {
+    e.preventDefault();
+    const inputPassword = document.querySelector('input[name="password"]');
+    inputPassword.type === 'password' ? inputPassword.type = 'text' : inputPassword.type = 'password';
+    this.setState({hidePassword: inputPassword.type === 'password'});
+  }
+
+  showConfirmPassword = e => {
+    e.preventDefault();
+    const inputConfirmPassword = document.querySelector('input[name="confirmPassword"]');
+    inputConfirmPassword.type === 'password' ? inputConfirmPassword.type = 'text' : inputConfirmPassword.type = 'password';
+    this.setState({hideConfirmPassword: inputConfirmPassword.type === 'password'});
+  }
+
   render() {
     return (
-      <div className="reveal-hide grid grid-cols-12 grid-rows-1 my-20">
+      <div className="reveal-hide grid grid-cols-12 grid-rows-1 mt-8 mb-20">
         <div
           className="reveal-1 col-span-12 sm:col-span-8 sm:col-start-3 lg:col-span-6 lg:col-start-4 xl:col-span-4 xl:col-start-5 bg-gradient-to-b from-gray-100 to-gray-300 dark:from-gray-600 dark:to-gray-800 dark:text-white text-gray-900 p-8 rounded-lg">
 
@@ -81,7 +95,7 @@ export default class RegisterForm extends React.Component {
             <input
               type="email"
               placeholder="Entrez une adresse email"
-              className="reveal-3 input input-clair dark:placeholder-gray-400 dark:bg-gray-600 dark:focus:bg-gray-500 dark:focus:placeholder-gray-300"
+              className="reveal-3 input input-clair rounded-full w-full dark:placeholder-gray-400 dark:bg-gray-600 dark:focus:bg-gray-500 dark:focus:placeholder-gray-300"
               name="email"
               autoComplete="off"
               value={this.state.email}
@@ -90,27 +104,45 @@ export default class RegisterForm extends React.Component {
 
             {/* Password */}
             <label className="reveal-4 block mt-5 pl-5 font-medium" htmlFor="password">Mot de passe</label>
-            <input
-              type="password"
-              placeholder="Entrez un mot de passe"
-              className="reveal-4 input input-clair dark:placeholder-gray-400 dark:bg-gray-600 dark:focus:bg-gray-500 dark:focus:placeholder-gray-300"
-              name="password"
-              autoComplete="off"
-              value={this.state.password}
-              onChange={this.onChange}
-            />
+            <div className="reveal-4">
+              <input
+                type="password"
+                placeholder="Entrez un mot de passe"
+                className="input input-clair w-10/12 rounded-l-full dark:placeholder-gray-400 dark:bg-gray-600 dark:focus:bg-gray-500 dark:focus:placeholder-gray-300"
+                name="password"
+                autoComplete="off"
+                value={this.state.password}
+                onChange={this.onChange}
+              />
+              <button
+                className="w-2/12 h-10 rounded-r-full outline-none focus:outline-none bg-gray-300 dark:bg-gray-600"
+                onClick={this.showPassword}
+              >
+                <i className={`fas ${this.state.hidePassword ? 'fa-eye' : 'fa-eye-slash'}`}/>
+              </button>
+            </div>
 
             {/* Confirm Password */}
-            <label className="reveal-5 block mt-5 pl-5 font-medium" htmlFor="confirmPassword">Confirmation mot de passe</label>
-            <input
-              type="password"
-              placeholder="Veuillez confirmer votre mot de passe"
-              className="reveal-5 input input-clair dark:placeholder-gray-400 dark:bg-gray-600 dark:focus:bg-gray-500 dark:focus:placeholder-gray-300"
-              name="confirmPassword"
-              autoComplete="off"
-              value={this.state.confirmPassword}
-              onChange={this.onChange}
-            />
+            <label className="reveal-5 block mt-5 pl-5 font-medium" htmlFor="confirmPassword">Confirmation mot de
+              passe</label>
+            <div className="reveal-5">
+              <input
+                type="password"
+                placeholder="Veuillez confirmer votre mot de passe"
+                className="input input-clair w-10/12 rounded-l-full dark:placeholder-gray-400 dark:bg-gray-600 dark:focus:bg-gray-500 dark:focus:placeholder-gray-300"
+                name="confirmPassword"
+                autoComplete="off"
+                value={this.state.confirmPassword}
+                onChange={this.onChange}
+              />
+
+              <button
+                className="w-2/12 h-10 rounded-r-full outline-none focus:outline-none bg-gray-300 dark:bg-gray-600"
+                onClick={this.showConfirmPassword}
+              >
+                <i className={`fas ${this.state.hideConfirmPassword ? 'fa-eye' : 'fa-eye-slash'}`}/>
+              </button>
+            </div>
 
             <CheckRegisterForm
               validateChars={this.state.validateChars}
