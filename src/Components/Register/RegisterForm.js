@@ -59,7 +59,21 @@ export default class RegisterForm extends React.Component {
   }
 
   checkEmail = email => {
-    this.setState({validateEmail: (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))})
+    const small = document.querySelector('small');
+    const inputEmail = document.querySelector('input[name="email"]');
+    const validateEmail = (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+
+    this.setState({validateEmail});
+
+    if (validateEmail) {
+      small.classList.remove('block');
+      small.classList.add('hidden');
+      inputEmail.classList.remove('border-red-500');
+    } else {
+      small.classList.remove('hidden');
+      small.classList.add('block');
+      inputEmail.classList.add('border-red-500');
+    }
   }
 
   showPassword = e => {
@@ -93,18 +107,21 @@ export default class RegisterForm extends React.Component {
             {/* Adresse email */}
             <label className="reveal-3 block pl-5 font-medium" htmlFor="email">Adresse email</label>
             <input
+              tabIndex="1"
               type="email"
               placeholder="Entrez une adresse email"
-              className="reveal-3 input input-clair rounded-full w-full dark:placeholder-gray-400 dark:bg-gray-600 dark:focus:bg-gray-500 dark:focus:placeholder-gray-300"
+              className={"reveal-3 border border-transparent input input-clair rounded-full w-full dark:placeholder-gray-400 dark:bg-gray-600 dark:focus:bg-gray-500 dark:focus:placeholder-gray-300"}
               name="email"
               autoComplete="off"
               value={this.state.email}
               onChange={this.onChange}
             />
+            <small className="hidden text-red-500 font-semibold ml-5 mt-1">Adresse email invalide</small>
 
             {/* Password */}
             <label className="reveal-4 block mt-5 pl-5 font-medium" htmlFor="password">Mot de passe</label>
             <input
+              tabIndex="2"
               type="password"
               placeholder="Entrez un mot de passe"
               className="reveal-4 input input-clair w-10/12 rounded-l-full dark:placeholder-gray-400 dark:bg-gray-600 dark:focus:bg-gray-500 dark:focus:placeholder-gray-300"
@@ -124,6 +141,7 @@ export default class RegisterForm extends React.Component {
             <label className="reveal-5 block mt-5 pl-5 font-medium" htmlFor="confirmPassword">Confirmation mot de
               passe</label>
             <input
+              tabIndex="3"
               type="password"
               placeholder="Veuillez confirmer votre mot de passe"
               className="reveal-5 input input-clair w-10/12 rounded-l-full dark:placeholder-gray-400 dark:bg-gray-600 dark:focus:bg-gray-500 dark:focus:placeholder-gray-300"
