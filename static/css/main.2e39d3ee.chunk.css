@@ -1,0 +1,2 @@
+input[type=checkbox]{display:none}#labelDarkMode{display:flex;align-items:center;justify-content:center;cursor:pointer;width:70px;height:70px;margin:20px auto 0;background-color:#202a38;border-radius:25px;transition:all .4s ease-out;color:#c3eb78;font-size:2rem}input[type=checkbox]:checked+#labelDarkMode{color:#1d5858;background:#0c1618}
+/*# sourceMappingURL=main.2e39d3ee.chunk.css.map */
