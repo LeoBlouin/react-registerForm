@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.js": "/react-register-form/static/js/main.eab7b860.chunk.js",
-    "main.js.map": "/react-register-form/static/js/main.eab7b860.chunk.js.map",
-    "runtime-main.js": "/react-register-form/static/js/runtime-main.8d4be6d4.js",
-    "runtime-main.js.map": "/react-register-form/static/js/runtime-main.8d4be6d4.js.map",
-    "static/js/2.864687bd.chunk.js": "/react-register-form/static/js/2.864687bd.chunk.js",
-    "static/js/2.864687bd.chunk.js.map": "/react-register-form/static/js/2.864687bd.chunk.js.map",
-    "index.html": "/react-register-form/index.html",
-    "static/js/2.864687bd.chunk.js.LICENSE.txt": "/react-register-form/static/js/2.864687bd.chunk.js.LICENSE.txt"
+    "main.js": "/react-registerForm/static/js/main.eab7b860.chunk.js",
+    "main.js.map": "/react-registerForm/static/js/main.eab7b860.chunk.js.map",
+    "runtime-main.js": "/react-registerForm/static/js/runtime-main.d5aae105.js",
+    "runtime-main.js.map": "/react-registerForm/static/js/runtime-main.d5aae105.js.map",
+    "static/js/2.864687bd.chunk.js": "/react-registerForm/static/js/2.864687bd.chunk.js",
+    "static/js/2.864687bd.chunk.js.map": "/react-registerForm/static/js/2.864687bd.chunk.js.map",
+    "index.html": "/react-registerForm/index.html",
+    "static/js/2.864687bd.chunk.js.LICENSE.txt": "/react-registerForm/static/js/2.864687bd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.8d4be6d4.js",
+    "static/js/runtime-main.d5aae105.js",
     "static/js/2.864687bd.chunk.js",
     "static/js/main.eab7b860.chunk.js"
   ]
