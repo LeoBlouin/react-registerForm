@@ -1,4 +1,5 @@
 import React from 'react';
+import './DarkMode.css';
 
 export default class DarkMode extends React.Component {
 
@@ -29,14 +30,10 @@ export default class DarkMode extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <button
-          className={`${this.state.darkMode ? 'btn-sun' : 'btn-moon'} btn mx-auto block mt-5 focus:outline-none text-lg`}
-          onClick={this.switchDarkMode}
-        >
-          {this.state.darkMode
-            ? (<span>Thème clair <i className="fas fa-sun text-yellow-600 ml-2"/></span>)
-            : (<span>Thème sombre <i className="fas fa-moon text-gray-200 ml-2"/></span>)}
-        </button>
+        <input type="checkbox" id="darkMode" checked={this.state.darkMode ? 'checked' : ''}/>
+        <label htmlFor="darkMode" id="labelDarkMode" onClick={this.switchDarkMode}>
+          <i class="far fa-lightbulb"/>
+        </label>
       </React.Fragment>
     );
   }
