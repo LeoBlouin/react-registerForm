@@ -29,12 +29,12 @@ export default class DarkMode extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className="reveal-hide">
         <input type="checkbox" id="darkMode" checked={this.state.darkMode ? 'checked' : ''}/>
-        <label htmlFor="darkMode" id="labelDarkMode" onClick={this.switchDarkMode}>
+        <label className="reveal-8" htmlFor="darkMode" id="labelDarkMode" onClick={this.switchDarkMode}>
           <i class="far fa-lightbulb"/>
         </label>
-      </React.Fragment>
+      </div>
     );
   }
 }
